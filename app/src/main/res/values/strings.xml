@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">HelloWorld</string>
+    <string name="kakao_map_activity_btn">Kakao Map Activity</string>
+    <string name="camera_activity_btn">Camera Activity</string>
+    <string name="traffic_activity_btn">Traffic Activity</string>
 </resources>
