@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import androidx.appcompat.app.AppCompatActivity;
 
 import net.daum.mf.map.api.MapView;
-
+v
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
