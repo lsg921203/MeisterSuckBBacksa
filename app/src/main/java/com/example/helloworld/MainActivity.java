@@ -1,14 +1,20 @@
 package com.example.helloworld;
 
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.helloworld.camera.CameraActivity;
+import com.example.helloworld.kakaomap.KakaoMap;
+import com.example.helloworld.traffic.TrafficActivity;
 
 import net.daum.mf.map.api.MapView;
 v
@@ -23,11 +29,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getHashKey();
+    }
 
-        MapView mapView = new MapView(this);
-
-        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
-        mapViewContainer.addView(mapView);
+    public void onClickKakaoMap(View view){
+        Intent intent = new Intent(this, KakaoMap.class);
+        startActivity( intent );
+    }
+    public void onClickCameraActivity(View view){
+        Intent intent = new Intent(this, CameraActivity.class);
+        startActivity( intent );
+    }
+    public void onClickTrafficActivity(View view){
+        Intent intent = new Intent(this, TrafficActivity.class);
+        startActivity( intent );
     }
 
     private void getHashKey(){
@@ -50,8 +64,4 @@ public class MainActivity extends AppCompatActivity {
             }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 }
