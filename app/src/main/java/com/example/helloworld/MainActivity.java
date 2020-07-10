@@ -8,16 +8,12 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.helloworld.camera.CameraActivity;
 import com.example.helloworld.kakaomap.KakaoMap;
 import com.example.helloworld.traffic.TrafficActivity;
-
-import net.daum.mf.map.api.MapView;
-v
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
