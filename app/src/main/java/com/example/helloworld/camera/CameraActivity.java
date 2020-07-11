@@ -55,6 +55,8 @@ public class CameraActivity extends AppCompatActivity {
                     && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
             ) {
                 Log.d("Permission", "권한 설정 완료");
+                lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                myLocation = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             } else {
                 Log.d("Permission", "권한 설정 요청");
                 String[] permissionArr = {
@@ -66,8 +68,7 @@ public class CameraActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(CameraActivity.this, permissionArr, 1);
             }
         }
-        lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        myLocation = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
         if( myLocation != null){
             Log.d("Location" , " " +myLocation.getLongitude());
         }else{
@@ -139,6 +140,7 @@ public class CameraActivity extends AppCompatActivity {
                     ExifInterface ei = new ExifInterface(mCurrentPhotoPath);
                     int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
                     Bitmap rotateBitMap = null;
+                    showExif(ei);
                     switch (orientation){
                         case ExifInterface.ORIENTATION_ROTATE_90:
                             rotateBitMap = rotateImage(bitmap , 90);
@@ -152,7 +154,7 @@ public class CameraActivity extends AppCompatActivity {
                         default:
                             rotateBitMap = bitmap;
                     }
-                    imageView.setImageBitmap(bitmap);
+                    imageView.setImageBitmap(rotateBitMap);
 
                 }
             } catch (IOException e) {
@@ -198,5 +200,29 @@ public class CameraActivity extends AppCompatActivity {
                 startActivityForResult(takePictureIntent, 1);
             }
         }
+    }
+
+    private void showExif(ExifInterface exif) {
+
+        String myAttribute = "[Exif information] \n\n";
+
+        myAttribute += getTagString(ExifInterface.TAG_DATETIME, exif);
+        myAttribute += getTagString(ExifInterface.TAG_FLASH, exif);
+        myAttribute += getTagString(ExifInterface.TAG_GPS_LATITUDE, exif);
+        myAttribute += getTagString(ExifInterface.TAG_GPS_LATITUDE_REF, exif);
+        myAttribute += getTagString(ExifInterface.TAG_GPS_LONGITUDE, exif);
+        myAttribute += getTagString(ExifInterface.TAG_GPS_LONGITUDE_REF, exif);
+        myAttribute += getTagString(ExifInterface.TAG_IMAGE_LENGTH, exif);
+        myAttribute += getTagString(ExifInterface.TAG_IMAGE_WIDTH, exif);
+        myAttribute += getTagString(ExifInterface.TAG_MAKE, exif);
+        myAttribute += getTagString(ExifInterface.TAG_MODEL, exif);
+        myAttribute += getTagString(ExifInterface.TAG_ORIENTATION, exif);
+        myAttribute += getTagString(ExifInterface.TAG_WHITE_BALANCE, exif);
+        myAttribute += getTagString(ExifInterface.TAG_WHITE_BALANCE, exif);
+
+        Log.d("ExifData" , myAttribute);
+    }
+    private String getTagString(String tag, ExifInterface exif) {
+        return (tag + " : " + exif.getAttribute(tag) + "\n");
     }
 }
