@@ -3,4 +3,9 @@
     <string name="kakao_map_activity_btn">Kakao Map Activity</string>
     <string name="camera_activity_btn">Camera Activity</string>
     <string name="traffic_activity_btn">Traffic Activity</string>
+    <string name="b">지점 B</string>
+    <string name="a">지점 A</string>
+    <string name="subway">지하철</string>
+    <string name="subwayBus">지하철+버스</string>
+    <string name="bus">버스</string>
 </resources>
