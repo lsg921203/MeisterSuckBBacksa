@@ -17,7 +17,7 @@ import com.example.helloworld.kakaomap.KakaoMap;
 import com.example.helloworld.traffic.TrafficActivity;
 
 import net.daum.mf.map.api.MapView;
-v
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
