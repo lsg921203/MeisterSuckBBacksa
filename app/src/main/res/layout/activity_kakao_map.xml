@@ -5,8 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".kakaomap.KakaoMap">
+
     <RelativeLayout
         android:id="@+id/map_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-34dp"
+        >
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="240dp"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="500dp"
+        android:cursorVisible="false"
+        android:hapticFeedbackEnabled="false"
+        android:linksClickable="false"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/map_view"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
