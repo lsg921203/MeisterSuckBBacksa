@@ -6,11 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".traffic.TrafficActivity">
 
-    <RelativeLayout
-        android:id="@+id/map_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,7 +13,8 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/placeA">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -29,8 +25,8 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:id="@+id/placeB">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -41,11 +37,11 @@
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checkedButton="@id/radioButton4"
+            android:checkedButton="@id/r1"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radioButton4"
+                android:id="@+id/r1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/subway"
@@ -55,7 +51,7 @@
                 tools:layout_editor_absoluteY="155dp" />
 
             <RadioButton
-                android:id="@+id/radioButton5"
+                android:id="@+id/r2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/subwayBus"
@@ -65,7 +61,7 @@
                 tools:layout_editor_absoluteY="123dp" />
 
             <RadioButton
-                android:id="@+id/radioButton6"
+                android:id="@+id/r3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/bus"
